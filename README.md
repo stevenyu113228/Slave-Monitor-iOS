@@ -23,7 +23,7 @@ This is an iOS app that lets you watch, command, and manage Claude Code instance
 
 Your slaves need to be set up first. Install the server-side components on each remote machine:
 
-**[Claude-Code-Remote](https://github.com/stevenyu113228/Claude-Code-Remote)** — Deploys ttyd (terminal server on port 7681) and a FastAPI backend (on port 8080) inside a tmux session, all bound to your Tailscale IP.
+**[Slave-Monitor-Server](https://github.com/stevenyu113228/Slave-Monitor-Server)** — Deploys ttyd (terminal server on port 7681) and a FastAPI backend (on port 8080) inside a tmux session, all bound to your Tailscale IP.
 
 Set up the server, then connect from this app. Your slaves are ready to be monitored.
 
@@ -82,7 +82,7 @@ xcodebuild -project SlaveMonitor.xcodeproj \
 
 ## Usage
 
-1. Start the [server](https://github.com/stevenyu113228/Claude-Code-Remote) on your remote machine(s)
+1. Start the [server](https://github.com/stevenyu113228/Slave-Monitor-Server) on your remote machine(s)
 2. Open the app → tap **+** → register a slave (name, Tailscale IP, ports)
 3. Tap **Save** → connection established, surveillance begins
 4. **Device tab bar** — switch between slaves
