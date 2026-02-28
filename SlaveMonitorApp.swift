@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct ClaudeRemoteApp: App {
+struct SlaveMonitorApp: App {
     @State private var appState = AppState()
 
     var body: some Scene {

@@ -1,4 +1,4 @@
-# Claude Remote iOS App
+# Slave Monitor
 
 A native iOS terminal client for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) running on a remote Mac or Linux machine. Connect to multiple devices over Tailscale VPN, manage tmux sessions, and interact with Claude Code from your iPhone.
 
@@ -6,7 +6,7 @@ A native iOS terminal client for [Claude Code](https://docs.anthropic.com/en/doc
 
 ## Features
 
-- **Native Terminal** — Full terminal emulator powered by [SwiftTerm](https://github.com/migueldeicaza/SwiftTerm), with WebSocket connection to [ttyd](https://github.com/niclas-niclas/ttyd)
+- **Native Terminal** — Full terminal emulator powered by [SwiftTerm](https://github.com/migueldeicaza/SwiftTerm), with WebSocket connection to [ttyd](https://github.com/tsl0922/ttyd)
 - **Multi-Device Profiles** — Save and switch between multiple remote machines, each with independent connections
 - **Tmux Tab Management** — View, switch, create, rename, and close tmux windows directly from the app
 - **Quick Keys** — Compact button bar for common terminal keys (`/`, `Tab`, `Esc`, `Enter`, `Ctrl+C`, `Ctrl+O`, `Ctrl+U`, arrow keys)
@@ -23,20 +23,13 @@ This app requires the companion server running on your remote machine:
 
 Follow the server repo's setup instructions first, then connect from this app using your Tailscale IP.
 
-## Requirements
-
-- iOS 17.0+
-- Xcode 16.0+
-- [XcodeGen](https://github.com/yonaskolb/XcodeGen)
-- [Tailscale](https://tailscale.com/) installed on both your iPhone and remote machine
-
 ## Install (Pre-built IPA)
 
 If you don't have an Apple Developer account, you can sideload the pre-built IPA using [AltStore](https://altstore.io/):
 
 1. Install **AltServer** on your Mac/PC ([download](https://altstore.io/))
 2. Connect your iPhone via USB and install **AltStore** to your phone through AltServer
-3. Download the latest `ClaudeRemote.ipa` from [Releases](https://github.com/stevenyu113228/Claude-Remote-iOS-APP/releases)
+3. Download the latest `SlaveMonitor.ipa` from [Releases](https://github.com/stevenyu113228/Slave-Monitor-iOS/releases)
 4. Open the downloaded IPA file and choose **Open with AltStore**
    - Or: open **AltStore** on your phone → **My Apps** → **+** → select the IPA
 5. AltStore will sign and install the app automatically
@@ -45,11 +38,18 @@ AltServer running in the background will auto-refresh the signing every 7 days.
 
 ## Build from Source
 
+### Requirements
+
+- iOS 17.0+
+- Xcode 16.0+
+- [XcodeGen](https://github.com/yonaskolb/XcodeGen)
+- [Tailscale](https://tailscale.com/) installed on both your iPhone and remote machine
+
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/stevenyu113228/Claude-Remote-iOS-APP.git
-cd Claude-Remote-iOS-APP
+git clone https://github.com/stevenyu113228/Slave-Monitor-iOS.git
+cd Slave-Monitor-iOS
 ```
 
 ### 2. Generate Xcode project
@@ -59,20 +59,20 @@ brew install xcodegen   # if not installed
 xcodegen generate
 ```
 
-This generates `ClaudeRemote.xcodeproj` from `project.yml`.
+This generates `SlaveMonitor.xcodeproj` from `project.yml`.
 
 ### 3. Open in Xcode
 
 ```bash
-open ClaudeRemote.xcodeproj
+open SlaveMonitor.xcodeproj
 ```
 
 ### 4. Configure signing
 
-- Select the **ClaudeRemote** target
+- Select the **SlaveMonitor** target
 - Go to **Signing & Capabilities**
-- Select your **Team** (Apple Developer account)
-- Update the **Bundle Identifier** to something unique (e.g. `com.yourname.clauderemote`)
+- Select your **Team** (Apple Developer account or free Apple ID)
+- Update the **Bundle Identifier** to something unique (e.g. `com.yourname.slavemonitor`)
 
 ### 5. Build and run
 
@@ -86,8 +86,8 @@ open ClaudeRemote.xcodeproj
 security find-certificate -c "Apple Development" -p | openssl x509 -noout -subject
 
 # Build for a connected device
-xcodebuild -project ClaudeRemote.xcodeproj \
-  -scheme ClaudeRemote \
+xcodebuild -project SlaveMonitor.xcodeproj \
+  -scheme SlaveMonitor \
   -destination 'generic/platform=iOS' \
   DEVELOPMENT_TEAM=YOUR_TEAM_ID \
   -allowProvisioningUpdates \

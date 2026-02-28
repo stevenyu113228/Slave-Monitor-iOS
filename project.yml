@@ -1,4 +1,4 @@
-name: ClaudeRemote
+name: SlaveMonitor
 options:
   bundleIdPrefix: com.clauderemote
   deploymentTarget:
@@ -11,7 +11,7 @@ packages:
     from: "1.11.0"
 
 targets:
-  ClaudeRemote:
+  SlaveMonitor:
     type: application
     platform: iOS
     sources:
@@ -30,7 +30,7 @@ targets:
         SWIFT_VERSION: "5.9"
         INFOPLIST_FILE: Info.plist
         GENERATE_INFOPLIST_FILE: "YES"
-        INFOPLIST_KEY_CFBundleDisplayName: "Claude Remote"
+        INFOPLIST_KEY_CFBundleDisplayName: "Slave Monitor"
         INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
         INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait"
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"

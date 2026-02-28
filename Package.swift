@@ -2,17 +2,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "ClaudeRemote",
+    name: "SlaveMonitor",
     platforms: [.iOS(.v17)],
     products: [
-        .library(name: "ClaudeRemote", targets: ["ClaudeRemote"])
+        .library(name: "SlaveMonitor", targets: ["SlaveMonitor"])
     ],
     dependencies: [
         .package(url: "https://github.com/migueldeicaza/SwiftTerm", from: "1.11.0")
     ],
     targets: [
         .target(
-            name: "ClaudeRemote",
+            name: "SlaveMonitor",
             dependencies: ["SwiftTerm"],
             path: "."
         )

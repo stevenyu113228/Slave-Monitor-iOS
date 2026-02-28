@@ -11,7 +11,7 @@ xcuserdata/
 .swiftpm/
 
 # XcodeGen (regenerated from project.yml)
-ClaudeRemote.xcodeproj/
+SlaveMonitor.xcodeproj/
 
 # Build output
 build/
