@@ -30,7 +30,20 @@ Follow the server repo's setup instructions first, then connect from this app us
 - [XcodeGen](https://github.com/yonaskolb/XcodeGen)
 - [Tailscale](https://tailscale.com/) installed on both your iPhone and remote machine
 
-## Build & Install
+## Install (Pre-built IPA)
+
+If you don't have an Apple Developer account, you can sideload the pre-built IPA using [AltStore](https://altstore.io/):
+
+1. Install **AltServer** on your Mac/PC ([download](https://altstore.io/))
+2. Connect your iPhone via USB and install **AltStore** to your phone through AltServer
+3. Download the latest `ClaudeRemote.ipa` from [Releases](https://github.com/stevenyu113228/Claude-Remote-iOS-APP/releases)
+4. Open the downloaded IPA file and choose **Open with AltStore**
+   - Or: open **AltStore** on your phone → **My Apps** → **+** → select the IPA
+5. AltStore will sign and install the app automatically
+
+AltServer running in the background will auto-refresh the signing every 7 days.
+
+## Build from Source
 
 ### 1. Clone the repo
 
