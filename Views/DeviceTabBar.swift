@@ -97,6 +97,7 @@ struct DeviceTabBar: View {
         case .connected: .green
         case .connecting: .orange
         case .disconnected: .red
+        case .kicked: .purple
         }
     }
 }

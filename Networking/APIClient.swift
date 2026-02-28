@@ -23,8 +23,36 @@ struct CopyResponse: Decodable {
     let text: String
 }
 
+struct SessionClaimResponse: Decodable {
+    let session_id: String
+}
+
+struct SessionCheckResponse: Decodable {
+    let active: Bool
+    let current_device: String?
+}
+
 class APIClient {
     var baseURL: String = ""
+
+    // MARK: - Session Claim
+
+    func claimSession(deviceName: String) async throws -> String {
+        let url = URL(string: "\(baseURL)/session/claim")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONEncoder().encode(["device": deviceName])
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let response = try JSONDecoder().decode(SessionClaimResponse.self, from: data)
+        return response.session_id
+    }
+
+    func checkSession(sessionId: String) async throws -> SessionCheckResponse {
+        let url = URL(string: "\(baseURL)/session/check/\(sessionId)")!
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return try JSONDecoder().decode(SessionCheckResponse.self, from: data)
+    }
 
     // MARK: - Photo Upload
 

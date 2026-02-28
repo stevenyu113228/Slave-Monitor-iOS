@@ -4,6 +4,7 @@ enum ConnectionStatus: String {
     case disconnected
     case connecting
     case connected
+    case kicked       // Taken over by another device — don't auto-reconnect
 }
 
 @Observable
