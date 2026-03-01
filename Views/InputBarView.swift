@@ -72,7 +72,10 @@ struct InputBarView: View {
 
     private func sendText() {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return }
+        guard !trimmed.isEmpty else {
+            client.sendInput([0x0D]) // Empty input → just press Enter
+            return
+        }
 
         // Replace [filename] placeholders with full paths
         let processed = trimmed.replacingOccurrences(

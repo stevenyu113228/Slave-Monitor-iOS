@@ -18,6 +18,7 @@ struct QuickKeysView: View {
                     keyButton("Enter", bytes: [0x0D])
                 }
                 HStack(spacing: 4) {
+                    keyButton("⇧Tab", bytes: [0x1B, 0x5B, 0x5A])
                     keyButton("Ctrl+C", bytes: [0x03])
                     keyButton("Ctrl+O", bytes: [0x0F])
                     keyButton("Ctrl+U", bytes: [0x15])
